@@ -1,0 +1,8 @@
+__pycache__/
+venv/
+.venv/
+*.pyc
+Logs/
+instance/
+ssh_tools.jsonc
+.env
