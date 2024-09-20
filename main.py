@@ -16,9 +16,13 @@ async def echo(websocket):
     except Exception: return
     try:
         async for message in websocket:
+            has_peers = False
             for ws in clients.values():
                 if ws == websocket: continue
+                has_peers = True
                 await ws.send('[{}]: {}'.format(username, message))
+            if not has_peers:
+                await websocket.send(message)
     except Exception:
         print('{} exited.'.format(username))
     finally:
