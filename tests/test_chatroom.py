@@ -1,6 +1,7 @@
 from unittest import TestCase
 from websockets.sync.client import connect
 
+# --
 class TestChatroom(TestCase):
     def test_echo(self):
         with connect("ws://localhost:8765") as websocket:
